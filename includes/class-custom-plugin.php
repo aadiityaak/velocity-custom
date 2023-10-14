@@ -114,17 +114,17 @@ class Custom_Plugin {
 		/**
 		 * Class untuk mendaftarkan custom post type.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-post-type.php';
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-post-type.php';
 
 		/**
 		 * Class untuk menggunakan backend post fiel metabox io.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-meta-box.php';
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-meta-box.php';
 
 		/**
 		 * Class untuk register shortcode.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-shortcode.php';
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-shortcode.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
