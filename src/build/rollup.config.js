@@ -30,13 +30,10 @@ const globals = {
 };
 
 module.exports = {
-  input: [
-    path.resolve(__dirname, "../js/velocity-custom.js"),
-    path.resolve(__dirname, "../js/custom.js"),
-  ],
+  input: [path.resolve(__dirname, "../js/custom.js")],
   output: {
     banner,
-    file: path.resolve(__dirname, `../../assets/js/${fileDest}`),
+    file: path.resolve(__dirname, `../../public/js/${fileDest}`),
     format: "umd",
     globals,
     name: "velocity-custom",
