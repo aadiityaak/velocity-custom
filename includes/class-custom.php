@@ -112,6 +112,11 @@ class Velocity_Custom {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-velocity-custom-i18n.php';
 
 		/**
+		 * Class untuk mendaftarkan custom post type.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-register-custom-post-type.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-velocity-custom-admin.php';

@@ -62,7 +62,7 @@ register_deactivation_hook( __FILE__, 'deactivate_velocity_custom' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-velocity-custom.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-custom.php';
 
 /**
  * Begins execution of the plugin.
