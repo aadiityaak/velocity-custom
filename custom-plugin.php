@@ -62,7 +62,7 @@ register_deactivation_hook( __FILE__, 'deactivate_custom_plugin' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-custom.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-custom-plugin.php';
 
 /**
  * Begins execution of the plugin.
