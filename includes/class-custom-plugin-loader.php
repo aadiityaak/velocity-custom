@@ -3,11 +3,11 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://https://velocitydeveloper.com/
+ * @link       {REPLACE_ME_URL}
  * @since      1.0.0
  *
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
- * @author     Velocity Developer <bantuanvelocity@gmail.com>
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
+ * @author     {REPLACE_ME_AUTHOR}
  */
-class Velocity_Custom_Loader {
+class Custom_Plugin_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

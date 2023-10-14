@@ -1,14 +1,14 @@
 <?php
 /**
  *
- * @link       https://https://velocitydeveloper.com/
+ * @link       {REPLACE_ME_URL}
  * @since      1.0.0
  *
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
  */
 
-class Register_Custom_Post_Types
+class Custom_Plugin_Post_Types
 {
     public function __construct()
     {
@@ -50,4 +50,4 @@ class Register_Custom_Post_Types
 }
 
 // Inisialisasi class Custom_Post_Types_Register
-$custom_post_types_register = new Register_Custom_Post_Types();
+$custom_post_types_register = new Custom_Plugin_Post_Types();

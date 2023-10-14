@@ -8,20 +8,20 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://https://velocitydeveloper.com/
+ * @link              {REPLACE_ME_URL}
  * @since             1.0.0
- * @package           Velocity_Custom
+ * @package           Custom_Plugin
  *
  * @wordpress-plugin
- * Plugin Name:       Velocity Custom
- * Plugin URI:        https://https://velocitydeveloper.com/
- * Description:       Plugin untuk web custom velocitydeveloper.com
+ * Plugin Name:       Custom Plugin
+ * Plugin URI:        {REPLACE_ME_URL}
+ * Description:       Plugin untuk web custom.
  * Version:           1.0.0
- * Author:            Velocity Developer
- * Author URI:        https://https://velocitydeveloper.com//
+ * Author:            {REPLACE_ME_AUTHOR}
+ * Author URI:        {REPLACE_ME_URL}
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       velocity-custom
+ * Text Domain:       custom-plugin
  * Domain Path:       /languages
  */
 
@@ -35,28 +35,28 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'VELOCITY_CUSTOM_VERSION', '1.0.0' );
+define( 'CUSTOM_PLUGIN_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-velocity-custom-activator.php
+ * This action is documented in includes/class-custom-plugin-activator.php
  */
-function activate_velocity_custom() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-velocity-custom-activator.php';
-	Velocity_Custom_Activator::activate();
+function activate_custom_plugin() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-custom-plugin-activator.php';
+	Custom_Plugin_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-velocity-custom-deactivator.php
+ * This action is documented in includes/class-custom-plugin-deactivator.php
  */
-function deactivate_velocity_custom() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-velocity-custom-deactivator.php';
-	Velocity_Custom_Deactivator::deactivate();
+function deactivate_custom_plugin() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-custom-plugin-deactivator.php';
+	Custom_Plugin_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_velocity_custom' );
-register_deactivation_hook( __FILE__, 'deactivate_velocity_custom' );
+register_activation_hook( __FILE__, 'activate_custom_plugin' );
+register_deactivation_hook( __FILE__, 'deactivate_custom_plugin' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-custom.php';
  *
  * @since    1.0.0
  */
-function run_velocity_custom() {
+function run_custom_plugin() {
 
-	$plugin = new Velocity_Custom();
+	$plugin = new Custom_Plugin();
 	$plugin->run();
 
 }
-run_velocity_custom();
+run_custom_plugin();

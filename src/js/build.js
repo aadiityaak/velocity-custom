@@ -39,11 +39,11 @@ async function copyDir(src, dest) {
     await del(["./dist"]);
     console.log("dist is deleted!");
 
-    await copyDir("./", "./dist/velocity-custom/velocity-custom");
+    await copyDir("./", "./dist/custom-plugin/custom-plugin");
 
     zipdir(
-      "./dist/velocity-custom",
-      { saveTo: "./dist/velocity-custom.zip" },
+      "./dist/custom-plugin",
+      { saveTo: "./dist/custom-plugin.zip" },
       (err, buffer) => {
         if (err) {
           console.error(err);

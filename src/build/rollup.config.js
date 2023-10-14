@@ -36,7 +36,7 @@ module.exports = {
     file: path.resolve(__dirname, `../../public/js/${fileDest}`),
     format: "umd",
     globals,
-    name: "velocity-custom",
+    name: "custom-plugin",
   },
   external,
   plugins,

@@ -19,10 +19,10 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       https://https://velocitydeveloper.com/
+ * @link       {REPLACE_ME_URL}
  * @since      1.0.0
  *
- * @package    Velocity_Custom
+ * @package    Custom_Plugin
  */
 
 // If uninstall not called from WordPress, then exit.

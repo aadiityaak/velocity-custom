@@ -6,11 +6,11 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://https://velocitydeveloper.com/
+ * @link       {REPLACE_ME_URL}
  * @since      1.0.0
  *
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
- * @author     Velocity Developer <bantuanvelocity@gmail.com>
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
+ * @author     {REPLACE_ME_AUTHOR}
  */
-class Velocity_Custom_i18n {
+class Custom_Plugin_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Velocity_Custom_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'velocity-custom',
+			'custom-plugin',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

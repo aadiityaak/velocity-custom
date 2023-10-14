@@ -6,11 +6,11 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://https://velocitydeveloper.com/
+ * @link       {REPLACE_ME_URL}
  * @since      1.0.0
  *
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
- * @author     Velocity Developer <bantuanvelocity@gmail.com>
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
+ * @author     {REPLACE_ME_AUTHOR}
  */
-class Velocity_Custom {
+class Custom_Plugin {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Velocity_Custom {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Velocity_Custom_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Custom_Plugin_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +67,12 @@ class Velocity_Custom {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'VELOCITY_CUSTOM_VERSION' ) ) {
-			$this->version = VELOCITY_CUSTOM_VERSION;
+		if ( defined( 'CUSTOM_PLUGIN_VERSION' ) ) {
+			$this->version = CUSTOM_PLUGIN_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'velocity-custom';
+		$this->plugin_name = 'custom-plugin';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Velocity_Custom {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Velocity_Custom_Loader. Orchestrates the hooks of the plugin.
-	 * - Velocity_Custom_i18n. Defines internationalization functionality.
-	 * - Velocity_Custom_Admin. Defines all hooks for the admin area.
-	 * - Velocity_Custom_Public. Defines all hooks for the public side of the site.
+	 * - Custom_Plugin_Loader. Orchestrates the hooks of the plugin.
+	 * - Custom_Plugin_i18n. Defines internationalization functionality.
+	 * - Custom_Admin. Defines all hooks for the admin area.
+	 * - Custom_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,38 +103,38 @@ class Velocity_Custom {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-velocity-custom-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-velocity-custom-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-i18n.php';
 
 		/**
 		 * Class untuk mendaftarkan custom post type.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-register-custom-post-type.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-post-type.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-velocity-custom-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-custom-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-velocity-custom-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-custom-public.php';
 
-		$this->loader = new Velocity_Custom_Loader();
+		$this->loader = new Custom_Plugin_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Velocity_Custom_i18n class in order to set the domain and to register the hook
+	 * Uses the Custom_Plugin_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -142,7 +142,7 @@ class Velocity_Custom {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Velocity_Custom_i18n();
+		$plugin_i18n = new Custom_Plugin_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -157,7 +157,7 @@ class Velocity_Custom {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Velocity_Custom_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Custom_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -173,7 +173,7 @@ class Velocity_Custom {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Velocity_Custom_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Custom_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -204,7 +204,7 @@ class Velocity_Custom {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Velocity_Custom_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Custom_Plugin_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

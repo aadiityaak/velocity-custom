@@ -1,9 +1,11 @@
 {
-  "name": "velocity-custom",
+  "name": "custom-plugin",
+  "title": "Custom Plugin",
   "version": "1.0.0",
-  "description": "Plugin untuk web custom velocitydeveloper.com",
-  "author": "velocitydeveloper.com",
-  "homepage": "https://velocitydeveloper.com",
+  "description": "Plugin untuk web custom",
+  "author": "Aditya K",
+  "homepage": "https://websweetstudio.com",
+  "homepage-v": "https://velocitydeveloper.com",
   "scripts": {
     "copy": "node src/build/copy-assets.js",
     "css": "npm-run-all css-compile css-postcss css-minify",

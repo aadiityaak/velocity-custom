@@ -1,6 +1,5 @@
 === Plugin Name ===
 Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://https://velocitydeveloper.com//
 Tags: comments, spam
 Requires at least: 3.0.1
 Tested up to: 3.4
@@ -43,7 +42,7 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload `velocity-custom.php` to the `/wp-content/plugins/` directory
+1. Upload `custom-plugin.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
 

@@ -3,11 +3,11 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://https://velocitydeveloper.com/
+ * @link       {REPLACE_ME_URL}
  * @since      1.0.0
  *
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Velocity_Custom
- * @subpackage Velocity_Custom/includes
- * @author     Velocity Developer <bantuanvelocity@gmail.com>
+ * @package    Custom_Plugin
+ * @subpackage Custom_Plugin/includes
+ * @author     {REPLACE_ME_AUTHOR}
  */
-class Velocity_Custom_Deactivator {
+class Custom_Plugin_Deactivator {
 
 	/**
 	 * Short Description. (use period)
