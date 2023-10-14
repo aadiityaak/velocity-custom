@@ -117,6 +117,11 @@ class Custom_Plugin {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-post-type.php';
 
 		/**
+		 * Class untuk menggunakan backend post fiel metabox io.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-meta-box.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-custom-admin.php';
