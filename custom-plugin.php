@@ -16,7 +16,7 @@
  * Plugin Name:       Custom Plugin
  * Plugin URI:        {REPLACE_ME_URL}
  * Description:       Plugin untuk web custom.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            {REPLACE_ME_AUTHOR}
  * Author URI:        {REPLACE_ME_URL}
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CUSTOM_PLUGIN_VERSION', '1.0.0' );
+define( 'CUSTOM_PLUGIN_VERSION', '1.0.1' );
 
 /**
  * The code that runs during plugin activation.

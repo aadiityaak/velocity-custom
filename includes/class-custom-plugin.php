@@ -137,6 +137,11 @@ class Custom_Plugin {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-custom-public.php';
 
+		/**
+		 * Custom Function
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/custom-function.php';
+
 		$this->loader = new Custom_Plugin_Loader();
 
 	}
