@@ -127,6 +127,11 @@ class Custom_Plugin {
 		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-shortcode.php';
 
 		/**
+		 * The function to add custom customizer.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-cuztomizer.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-custom-admin.php';
@@ -140,7 +145,7 @@ class Custom_Plugin {
 		/**
 		 * Custom Function
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/custom-function.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-function.php';
 
 		$this->loader = new Custom_Plugin_Loader();
 
