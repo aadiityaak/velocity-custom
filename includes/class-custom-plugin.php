@@ -27,7 +27,8 @@
  * @subpackage Custom_Plugin/includes
  * @author     {REPLACE_ME_AUTHOR}
  */
-class Custom_Plugin {
+class Custom_Plugin
+{
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -66,8 +67,9 @@ class Custom_Plugin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct() {
-		if ( defined( 'CUSTOM_PLUGIN_VERSION' ) ) {
+	public function __construct()
+	{
+		if (defined('CUSTOM_PLUGIN_VERSION')) {
 			$this->version = CUSTOM_PLUGIN_VERSION;
 		} else {
 			$this->version = '1.0.0';
@@ -78,7 +80,6 @@ class Custom_Plugin {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -97,19 +98,20 @@ class Custom_Plugin {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies() {
+	private function load_dependencies()
+	{
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-loader.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-custom-plugin-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-plugin-i18n.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-custom-plugin-i18n.php';
 
 		/**
 		 * Class untuk mendaftarkan custom post type.
@@ -134,13 +136,13 @@ class Custom_Plugin {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-custom-admin.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-custom-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-custom-public.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-custom-public.php';
 
 		/**
 		 * Custom Function
@@ -148,7 +150,6 @@ class Custom_Plugin {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-function.php';
 
 		$this->loader = new Custom_Plugin_Loader();
-
 	}
 
 	/**
@@ -160,12 +161,12 @@ class Custom_Plugin {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function set_locale() {
+	private function set_locale()
+	{
 
 		$plugin_i18n = new Custom_Plugin_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
+		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 	}
 
 	/**
@@ -175,13 +176,13 @@ class Custom_Plugin {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks() {
+	private function define_admin_hooks()
+	{
 
-		$plugin_admin = new Custom_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Custom_Admin($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 	}
 
 	/**
@@ -191,13 +192,13 @@ class Custom_Plugin {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_public_hooks()
+	{
 
-		$plugin_public = new Custom_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Custom_Public($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 	}
 
 	/**
@@ -205,7 +206,8 @@ class Custom_Plugin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run() {
+	public function run()
+	{
 		$this->loader->run();
 	}
 
@@ -216,7 +218,8 @@ class Custom_Plugin {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
+	public function get_plugin_name()
+	{
 		return $this->plugin_name;
 	}
 
@@ -226,7 +229,8 @@ class Custom_Plugin {
 	 * @since     1.0.0
 	 * @return    Custom_Plugin_Loader    Orchestrates the hooks of the plugin.
 	 */
-	public function get_loader() {
+	public function get_loader()
+	{
 		return $this->loader;
 	}
 
@@ -236,8 +240,8 @@ class Custom_Plugin {
 	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
 	 */
-	public function get_version() {
+	public function get_version()
+	{
 		return $this->version;
 	}
-
 }
