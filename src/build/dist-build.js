@@ -2,7 +2,14 @@ const { promises: fs, readFileSync, writeFileSync } = require("fs");
 const del = require("del");
 const zipdir = require("zip-dir");
 const path = require("path");
-let siteUrl, authorName, zipName;
+
+let siteUrl, authorName, zipName, version;
+
+// Baca versi dari file package.json
+const packageJsonPath = path.join(__dirname, "../../package.json");
+const packageJsonContent = readFileSync(packageJsonPath, "utf-8");
+const packageJson = JSON.parse(packageJsonContent);
+version = packageJson.version;
 
 async function copyDir(src, dest, buildMode) {
   await fs.mkdir(dest, { recursive: true });
@@ -44,7 +51,7 @@ async function copyDir(src, dest, buildMode) {
       } else {
         siteUrl = "https://websweetstudio.com";
         authorName = "Aditya K";
-        zipName = "custom-plugin-websweet";
+        zipName = `custom-plugin-websweet`; // Gunakan versi dalam nama zip
       }
 
       // Ganti semua kemunculan {REPLACE_ME_URL} dengan URL dan penulis yang sesuai dengan mode build
@@ -67,7 +74,7 @@ del("./dist").then(() => {
     (resultingZipName) => {
       zipName = resultingZipName; // Assign hasil dari copyDir ke zipName di luar fungsi
       zipdir("./dist/custom-plugin", {
-        saveTo: `./dist/${zipName}.zip`,
+        saveTo: `./dist/${zipName}-${version}.zip`,
       });
       console.log("Zip file created");
     }
