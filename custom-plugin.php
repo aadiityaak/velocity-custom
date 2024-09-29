@@ -16,7 +16,7 @@
  * Plugin Name:       Custom Plugin
  * Plugin URI:        {REPLACE_ME_URL}
  * Description:       Plugin untuk web custom.
- * Version:           1.0.2
+ * Version:           1.0.21
  * Author:            {REPLACE_ME_AUTHOR}
  * Author URI:        {REPLACE_ME_URL}
  * License:           GPL-2.0+

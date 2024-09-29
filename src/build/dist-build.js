@@ -3,9 +3,9 @@ const del = require("del");
 const zipdir = require("zip-dir");
 const path = require("path");
 
-let siteUrl, authorName, zipName, version;
+let version;
 
-// Baca versi dari file package.json
+// Read version from package.json
 const packageJsonPath = path.join(__dirname, "../../package.json");
 const packageJsonContent = readFileSync(packageJsonPath, "utf-8");
 const packageJson = JSON.parse(packageJsonContent);
@@ -29,8 +29,24 @@ async function copyDir(src, dest, buildMode) {
     "package-lock.json",
   ];
 
+  let siteUrl, authorName, zipName;
+
+  if (buildMode === "velocity") {
+    siteUrl = "https://velocitydeveloper.com";
+    authorName = "Velocity Developer";
+    zipName = "custom-plugin-velocity";
+  } else if (buildMode === "kai") {
+    siteUrl = "https://kai.web.id";
+    authorName = "Eko Mustakim";
+    zipName = "custom-plugin-kai";
+  } else {
+    siteUrl = "https://websweetstudio.com";
+    authorName = "Aditya K";
+    zipName = `custom-plugin-websweet`;
+  }
+
   for (let entry of entries) {
-    if (ignore.indexOf(entry.name) !== -1) {
+    if (ignore.includes(entry.name)) {
       continue;
     }
     let srcPath = path.join(src, entry.name);
@@ -40,25 +56,8 @@ async function copyDir(src, dest, buildMode) {
       await copyDir(srcPath, destPath, buildMode);
     } else {
       let fileContent = await fs.readFile(srcPath, "utf-8");
-      if (buildMode === "velocity") {
-        siteUrl = "https://velocitydeveloper.com";
-        authorName = "Velocity Developer";
-        zipName = "custom-plugin-velocity";
-      } else if (buildMode === "kai") {
-        siteUrl = "https://kai.web.id";
-        authorName = "Eko Mustakim";
-        zipName = "custom-plugin-kai";
-      } else {
-        siteUrl = "https://websweetstudio.com";
-        authorName = "Aditya K";
-        zipName = `custom-plugin-websweet`; // Gunakan versi dalam nama zip
-      }
-
-      // Ganti semua kemunculan {REPLACE_ME_URL} dengan URL dan penulis yang sesuai dengan mode build
       fileContent = fileContent.replace(/{REPLACE_ME_URL}/g, siteUrl);
       fileContent = fileContent.replace(/{REPLACE_ME_AUTHOR}/g, authorName);
-
-      // Tulis file yang telah dimodifikasi ke direktori tujuan
       await fs.writeFile(destPath, fileContent);
     }
   }
@@ -66,17 +65,23 @@ async function copyDir(src, dest, buildMode) {
   return zipName;
 }
 
-const buildMode = process.argv[2] || "";
+const buildModes = ["velocity", "kai", "websweet"];
 
 del("./dist").then(() => {
   console.log("dist is deleted!");
-  copyDir("./", "./dist/custom-plugin/custom-plugin", buildMode).then(
-    (resultingZipName) => {
-      zipName = resultingZipName; // Assign hasil dari copyDir ke zipName di luar fungsi
-      zipdir("./dist/custom-plugin", {
+  const zipPromises = buildModes.map((buildMode) =>
+    copyDir(
+      "./",
+      `./dist/custom-plugin/custom-plugin-${buildMode}`,
+      buildMode
+    ).then((zipName) => {
+      return zipdir(`./dist/custom-plugin/custom-plugin-${buildMode}`, {
         saveTo: `./dist/${zipName}-${version}.zip`,
       });
-      console.log("Zip file created");
-    }
+    })
   );
+
+  Promise.all(zipPromises).then(() => {
+    console.log("All zip files created");
+  });
 });

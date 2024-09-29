@@ -1,7 +1,7 @@
 {
   "name": "custom-plugin",
   "title": "Custom Plugin",
-  "version": "1.0.2",
+  "version": "1.0.21",
   "description": "Plugin untuk web custom",
   "author": "Aditya K",
   "homepage": "https://websweetstudio.com",
@@ -14,7 +14,7 @@
     "css-postcss": "postcss --config src/build/postcss.config.js --replace \"public/css/*.css\" \"!public/css/*.rtl*.css\" \"!public/css/*.min.css\"",
     "js": "npm-run-all js-compile js-minify",
     "js-compile": "rollup --config src/build/rollup.config.js --sourcemap",
-    "js-minify": "terser  --config-file src/build/terser.config.json --output public/js/script.min.js public/js/script.js",
+    "js-minify": "terser --config-file src/build/terser.config.json --output public/js/script.min.js public/js/script.js",
     "dist": "npm-run-all css js",
     "build": "node src/build/dist-build.js",
     "package": "npm-run-all dist build"

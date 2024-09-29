@@ -95,9 +95,19 @@ class Custom_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		// Path ke file JSON
+		$json_state = plugin_dir_url(__FILE__) . 'data/state.json';
+		$json_city = plugin_dir_url(__FILE__) . 'data/city.json';
+		$json_district = plugin_dir_url(__FILE__) . 'data/district.json';
+		
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/script.min.js', array( 'jquery' ), $this->version, false );
-
+		// Lokalisasi script dengan path JSON
+		wp_localize_script($this->plugin_name, 'customPluginData', array(
+			'jsonState' => $json_state,
+			'jsonCity' => $json_city,
+			'jsonDistrict' => $json_district,
+			'ajax_url' => admin_url('admin-ajax.php'),
+		));
 	}
 
 }

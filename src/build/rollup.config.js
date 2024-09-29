@@ -3,7 +3,7 @@
 const path = require("path");
 const { babel } = require("@rollup/plugin-babel");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
-import commonjs from "@rollup/plugin-commonjs";
+const commonjs = require("@rollup/plugin-commonjs");
 import multi from "@rollup/plugin-multi-entry";
 const replace = require("@rollup/plugin-replace");
 const banner = require("./banner.js");
@@ -30,7 +30,12 @@ const globals = {
 };
 
 module.exports = {
-  input: [path.resolve(__dirname, "../js/custom.js")],
+  input: [
+    path.resolve(__dirname, "../js/lockr.js"),
+    path.resolve(__dirname, "../js/chained.js"),
+    path.resolve(__dirname, "../js/lokasi.js"),
+    path.resolve(__dirname, "../js/custom.js"),
+  ],
   output: {
     banner,
     file: path.resolve(__dirname, `../../public/js/${fileDest}`),
